@@ -15,7 +15,7 @@ FedoraQuick is a one-line command that takes care of everything you need to have
 ## Status
 Works on Fedora Workstation 22:
 
-```sudo bash -c 'bash <(curl -fsSL https://fedoraquick.com/fedoraquick.sh)'```
+```sudo bash -c 'bash <(wget -qO - https://fedoraquick.com/fedoraquick.sh)''```
 
 ## Disclaimers
 FedoraQuick is not associated with, or endorsed by, the Fedora Project, Red Hat, or any related entity. It is entirely a third party community effort.
