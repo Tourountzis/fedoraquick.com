@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# FedoraQuick 22.0
+# FedoraQuick 22.1
 # Nadim Kobeissi
 # GPLv3
 #
