@@ -4,6 +4,7 @@ A fresh Fedora installation doesn't come with adequate support for:
 
 * Playing many media formats (including mp3).
 * Nice font smoothing.
+* ExFAT filesystem support.
 * Other things.
 
 Installing these crucial functionalities can be a pain for new users. People generally have to hunt down outdated answers on StackOverflow and piece together a way to make their Fedora desktop *work*.

@@ -12,7 +12,7 @@
 # FedoraQuick comes with absolutely no warranty.
 # Use FedoraQuick at your own risk.
 
-FQVERSION="22.0"
+FQVERSION="22.1"
 FQSUPPORTEDOS="22"
 FQRPMFKEYID="A6708DA3"
 FQRPMFKEYFP="BAD2 40A4 79FF 87E7 791E  105F 27D7 7A09 A670 8DA3"
@@ -52,13 +52,14 @@ echo "We will be enabling:"
 echo "${FB}*${FN} RPMFusion integration."
 echo "${FB}*${FN} Audio/video format support."
 echo "${FB}*${FN} Better font smoothing."
+echo "${FB}*${FN} ExFAT filesystem support."
 
 confirm && exit
 
 echo ""
 echo "${FB}RPMFusion integration${FN}"
-echo -n "Starting in 5 seconds..."
-sleep 5
+echo -n "Starting in 3 seconds... "
+sleep 3
 echo ""
 
 echo -n "Verifying signing keys... "
@@ -87,8 +88,8 @@ echo "OK!"
 
 echo ""
 echo "${FB}Audio/video format support${FN}"
-echo -n "Starting in 5 seconds..."
-sleep 5
+echo -n "Starting in 3 seconds... "
+sleep 3
 echo ""
 
 echo -n "Installing codecs... "
@@ -103,12 +104,23 @@ echo "OK!"
 
 echo ""
 echo "${FB}Better font smoothing${FN}"
-echo -n "Starting in 5 seconds..."
-sleep 5
+echo -n "Starting in 3 seconds... "
+sleep 3
 echo ""
 
 echo -n "Installing freetype... "
 dnf -y install freetype-freeworld &> /dev/null
+echo "OK!"
+
+
+echo ""
+echo "${FB}ExFAT filesystem support${FN}"
+echo -n "Starting in 3 seconds... "
+sleep 3
+echo ""
+
+echo -n "Installing ExFAT utilities... "
+dnf -y install exfat-utils fuse-exfat &> /dev/null
 echo "OK!"
 
 echo ""
