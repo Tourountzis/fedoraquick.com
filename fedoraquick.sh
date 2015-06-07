@@ -112,7 +112,6 @@ echo -n "Installing freetype... "
 dnf -y install freetype-freeworld &> /dev/null
 echo "OK!"
 
-
 echo ""
 echo "${FB}ExFAT filesystem support${FN}"
 echo -n "Starting in 3 seconds... "
