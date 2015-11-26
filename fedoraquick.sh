@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# FedoraQuick 22.1
+# FedoraQuick 23.0
 # Nadim Kobeissi
 # GPLv3
 #
@@ -12,10 +12,10 @@
 # FedoraQuick comes with absolutely no warranty.
 # Use FedoraQuick at your own risk.
 
-FQVERSION="22.1"
-FQSUPPORTEDOS="22"
-FQRPMFKEYID="A6708DA3"
-FQRPMFKEYFP="BAD2 40A4 79FF 87E7 791E  105F 27D7 7A09 A670 8DA3"
+FQVERSION="23.0"
+FQSUPPORTEDOS="23"
+FQRPMFKEYID="E051B67E"
+FQRPMFKEYFP="1E0D 69F0 77CA 4960 C32C  17E2 5B03 78C0 E051 B67E"
 FB=$(tput bold)
 FN=$(tput sgr0)
 

@@ -1,3 +1,6 @@
+## FedoraQuick 23.0 (November 26 2015)
+* Support for Fedora 23.
+
 ## FedoraQuick 22.1 (June 7 2015)
 * Add ExFAT filesystem support.
 * Reduce timeouts from 5 to 3 seconds.

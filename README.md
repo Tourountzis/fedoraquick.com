@@ -14,8 +14,6 @@ FedoraQuick is a one-line command that takes care of everything you need to have
 **Warning**: FedoraQuick cannot function without requiring root access. Therefore, we strongly recommend you read the source code before running it on your machine.
 
 ## Status
-Works on Fedora Workstation 22:
-
 ```sudo bash -c 'bash <(wget -qO - https://fedoraquick.com/fedoraquick.sh)'```
 
 ## Disclaimers
