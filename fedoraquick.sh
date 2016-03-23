@@ -12,7 +12,7 @@
 # FedoraQuick comes with absolutely no warranty.
 # Use FedoraQuick at your own risk.
 
-FQVERSION="23.0"
+FQVERSION="23.1"
 FQSUPPORTEDOS="23"
 FQRPMFKEYID="E051B67E"
 FQRPMFKEYFP="1E0D 69F0 77CA 4960 C32C  17E2 5B03 78C0 E051 B67E"
