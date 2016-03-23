@@ -1,3 +1,6 @@
+## FedoraQuick 23.1 (March 23 2016)
+* Add LCD smoothing to global X11 settings.
+
 ## FedoraQuick 23.0 (November 26 2015)
 * Support for Fedora 23.
 
