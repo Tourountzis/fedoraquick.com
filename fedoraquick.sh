@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# FedoraQuick 23.0
+# FedoraQuick 23.1
 # Nadim Kobeissi
 # GPLv3
 #
@@ -110,6 +110,7 @@ echo ""
 
 echo -n "Installing freetype... "
 dnf -y install freetype-freeworld &> /dev/null
+echo "Xft.lcdfilter: lcddefault" >> /etc/X11/Xresources
 echo "OK!"
 
 echo ""
