@@ -1,10 +1,9 @@
 ## fedoraquick.com
 
-A fresh Fedora installation doesn't come with adequate support for:
-
+A fresh Fedora installation doesn't come with adequate support for many essential features that FedoraQuick easily enables:
 * Playing many media formats (including mp3).
 * Installing popular software such as Chromium, VLC and more, directly from repositories.
-* Nice font smoothing.
+* FreeType LCD font smoothing.
 * ExFAT filesystem support.
 * Other things.
 
