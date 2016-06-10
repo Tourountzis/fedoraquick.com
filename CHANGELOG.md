@@ -1,3 +1,8 @@
+## FedoraQuick 24.0 (June 10 2016)
+* Support for Fedora 23.
+* Use UnitedRPMs instead of RPMFusion.
+* Improved font smoothing support.
+
 ## FedoraQuick 23.1 (March 23 2016)
 * Add LCD smoothing to global X11 settings.
 

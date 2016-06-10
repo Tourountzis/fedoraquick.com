@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# FedoraQuick 23.1
+# FedoraQuick 24.0
 # Nadim Kobeissi
 # GPLv3
 #
@@ -12,10 +12,10 @@
 # FedoraQuick comes with absolutely no warranty.
 # Use FedoraQuick at your own risk.
 
-FQVERSION="23.1"
-FQSUPPORTEDOS="23"
-FQRPMFKEYID="E051B67E"
-FQRPMFKEYFP="1E0D 69F0 77CA 4960 C32C  17E2 5B03 78C0 E051 B67E"
+FQVERSION="24.0"
+FQSUPPORTEDOS="24"
+FQRPMKEYID="5250AEF3"
+FQRPMKEYFP="36EB EB08 D346 B0A8 5B58  E140 EE78 8F49 5250 AEF3"
 FB=$(tput bold)
 FN=$(tput sgr0)
 
@@ -49,7 +49,7 @@ echo "with your system! We can now proceed."
 echo "${FB}An active Internet connection will be required.${FN}"
 echo ""
 echo "We will be enabling:"
-echo "${FB}*${FN} RPMFusion integration."
+echo "${FB}*${FN} UnitedRPMs integration."
 echo "${FB}*${FN} Audio/video format support."
 echo "${FB}*${FN} Better font smoothing."
 echo "${FB}*${FN} ExFAT filesystem support."
@@ -57,26 +57,26 @@ echo "${FB}*${FN} ExFAT filesystem support."
 confirm && exit
 
 echo ""
-echo "${FB}RPMFusion integration${FN}"
+echo "${FB}UnitedRPMs integration${FN}"
 echo -n "Starting in 3 seconds... "
 sleep 3
 echo ""
 
 echo -n "Verifying signing keys... "
-gpg --keyserver pgp.mit.edu --recv-keys $FQRPMFKEYID &> /dev/null
+gpg --keyserver pgp.mit.edu --recv-keys $FQRPMKEYID &> /dev/null
 if [[ $(
-	gpg --fingerprint $FQRPMFKEYID | grep -oh "$FQRPMFKEYFP"
-) != $FQRPMFKEYFP ]]; then
+	gpg --fingerprint $FQRPMKEYID | grep -oh "$FQRPMKEYFP"
+) != $FQRPMKEYFP ]]; then
 	echo "failed. Exiting."
 	exit
 fi
 echo "OK!"
 
-echo -n "Installing RPMFusion repository... "
-dnf -y install \
-http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-\
-$(rpm -E %fedora).noarch.rpm &> /dev/null
-if [[ ! -e /etc/yum.repos.d/rpmfusion-free.repo ]]; then
+echo -n "Installing UnitedRPMs repository... "
+dnf -y config-manager \
+--add-repo=https://raw.githubusercontent.com/UnitedRPMs/unitedrpms.github.io/master/unitedrpms.repo \
+&> /dev/null
+if [[ ! -e /etc/yum.repos.d/unitedrpms.repo ]]; then
 	echo "failed. Exiting."
 	exit
 fi
@@ -109,8 +109,10 @@ sleep 3
 echo ""
 
 echo -n "Installing freetype... "
+FONTCONFIG="PD94bWwgdmVyc2lvbj0nMS4wJz8+CjwhRE9DVFlQRSBmb250Y29uZmlnIFNZU1RFTSAnZm9udHMuZHRkJz4KPGZvbnRjb25maWc+CiAgICA8bWF0Y2ggdGFyZ2V0PSJmb250Ij4KICAgICAgICA8ZWRpdCBuYW1lPSJhbnRpYWxpYXMiIG1vZGU9ImFzc2lnbiI+CiAgICAgICAgICAgIDxib29sPnRydWU8L2Jvb2w+CiAgICAgICAgPC9lZGl0PgogICAgICAgIDxlZGl0IG5hbWU9ImF1dG9oaW50IiBtb2RlPSJhc3NpZ24iPgogICAgICAgICAgICA8Ym9vbD5mYWxzZTwvYm9vbD4KICAgICAgICA8L2VkaXQ+CiAgICAgICAgPGVkaXQgbmFtZT0iZW1iZWRkZWRiaXRtYXAiIG1vZGU9ImFzc2lnbiI+CiAgICAgICAgICAgIDxib29sPmZhbHNlPC9ib29sPgogICAgICAgIDwvZWRpdD4KICAgICAgICA8ZWRpdCBuYW1lPSJoaW50aW5nIiBtb2RlPSJhc3NpZ24iPgogICAgICAgICAgICA8Ym9vbD50cnVlPC9ib29sPgogICAgICAgIDwvZWRpdD4KICAgICAgICA8ZWRpdCBuYW1lPSJoaW50c3R5bGUiIG1vZGU9ImFzc2lnbiI+CiAgICAgICAgICAgIDxjb25zdD5oaW50c2xpZ2h0PC9jb25zdD4KICAgICAgICA8L2VkaXQ+CiAgICAgICAgPGVkaXQgbmFtZT0ibGNkZmlsdGVyIiBtb2RlPSJhc3NpZ24iPgogICAgICAgICAgICA8Y29uc3Q+bGNkbGlnaHQ8L2NvbnN0PgogICAgICAgIDwvZWRpdD4KICAgICAgICA8ZWRpdCBuYW1lPSJyZ2JhIiBtb2RlPSJhc3NpZ24iPgogICAgICAgICAgICA8Y29uc3Q+cmdiPC9jb25zdD4KICAgICAgICA8L2VkaXQ+CiAgICA8L21hdGNoPgo8L2ZvbnRjb25maWc+Cg=="
 dnf -y install freetype-freeworld &> /dev/null
 echo "Xft.lcdfilter: lcddefault" >> /etc/X11/Xresources
+echo $FONTCONFIG | base64 --decode > /etc/fonts/local.conf
 echo "OK!"
 
 echo ""
